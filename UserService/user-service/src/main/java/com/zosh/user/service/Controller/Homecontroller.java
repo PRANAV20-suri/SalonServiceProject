@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class Homecontroller {
     @GetMapping
     public String  returnname(){
-        return("oController working");
+        return("Controller working");
     }
 }
