@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,13 +26,17 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fullName;
+    @Email(message = "Enter a valid email")
+    @NotBlank(message = "email is compulsory")
     private String email;
     private String phone;
+    @NotBlank(message = "role is compulsory")
     private String role;
     @CreationTimestamp
     private LocalDateTime localDateTime;
     @UpdateTimestamp
     private LocalDateTime updatedAt;
-
+    @NotBlank(message = "password is compulsory")
+    private String password;
 
 }
